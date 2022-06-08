@@ -1,0 +1,93 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "n",
+        "type": "int256"
+      }
+    ],
+    "name": "abs",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "a",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "b",
+        "type": "int256"
+      }
+    ],
+    "name": "average",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "a",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "b",
+        "type": "int256"
+      }
+    ],
+    "name": "max",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "a",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "b",
+        "type": "int256"
+      }
+    ],
+    "name": "min",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]

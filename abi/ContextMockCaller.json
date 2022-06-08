@@ -1,0 +1,38 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract ContextMock",
+        "name": "context",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "integerValue",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "stringValue",
+        "type": "string"
+      }
+    ],
+    "name": "callData",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ContextMock",
+        "name": "context",
+        "type": "address"
+      }
+    ],
+    "name": "callSender",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
