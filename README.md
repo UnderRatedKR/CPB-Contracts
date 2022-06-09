@@ -8,3 +8,11 @@ npm install
 npx hardhat compile
 npx hardhat test
 ```
+
+## CPB Season 1
+```
+Name : CelebPhotobooks Season 1
+Symbol : CPB
+Baobab :
+Cypress : 
+```
