@@ -6,8 +6,9 @@ module.exports = {
   solidity: '0.8.9',
   networks: {
     baobab: {
-      url: 'https://public-node-api.klaytnapi.com/v1/baobab',
-      accounts: [process.env.PRIVATE_KEY || ''],
+      url: 'https://public-node-api.klaytnapi.com/v1/baobab/',
+      accounts: [process.env.PRIVATE_KEY],
+      gasPrice:250000000000,
     },
   },
   abiExporter: {
