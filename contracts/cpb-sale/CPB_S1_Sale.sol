@@ -2,9 +2,8 @@
 pragma solidity ^0.8.9;
 
 import "../openzeppelin-contracts/access/Ownable.sol";
-import "../openzeppelin-contracts/token/ERC721/IERC721.sol";
 
-contract SaleForERC721 is Ownable{
+contract CPB_S1_Sale is Ownable{
 
     event setSaleStatus(uint256 status);
 
