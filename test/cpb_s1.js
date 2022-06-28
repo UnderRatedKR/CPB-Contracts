@@ -7,7 +7,7 @@ describe("cpb nft s1 test", function () {
     const [deployer, user] = provider.getWallets();
 
     //NFT 배포
-    const CPB1 = await ethers.getContractFactory("nft/CelebPhotoBooksSeason1");
+    const CPB1 = await ethers.getContractFactory("nft/CPB_S1");
     const cpb = await CPB1.deploy("https://test.com/");
     await cpb.deployed();
 

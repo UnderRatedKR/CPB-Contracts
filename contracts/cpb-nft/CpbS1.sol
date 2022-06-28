@@ -9,12 +9,12 @@ import "../openzeppelin-contracts/access/Ownable.sol";
 import "../openzeppelin-contracts/access/AccessControl.sol";
 import "../openzeppelin-contracts/token/ERC721/extensions/ERC721Burnable.sol";
 
-contract CelebPhotoBooksSeason1 is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessControl, ERC721Burnable, Ownable {
+contract CPB_S1 is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessControl, ERC721Burnable, Ownable {
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     string private _baseTokenURI;
 
-    constructor(string memory baseTokenURI) ERC721("CelebPhotoBooksSeason1", "CPB1") {
+    constructor(string memory baseTokenURI) ERC721("CelebPhotoBooks Season 1", "CPB") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(PAUSER_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);

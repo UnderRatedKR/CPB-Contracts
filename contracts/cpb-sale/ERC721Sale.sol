@@ -2,6 +2,7 @@
 pragma solidity ^0.8.9;
 
 import "../openzeppelin-contracts/access/Ownable.sol";
+import "../openzeppelin-contracts/token/ERC721/IERC721.sol";
 
 contract SaleForERC721 is Ownable{
 
@@ -17,7 +18,7 @@ contract SaleForERC721 is Ownable{
     SaleState public saleState;
     uint256 public salePrice; //wei or peb
     
-    constructor (uint256 _salePrice) public {
+    constructor (uint256 _salePrice) {
         salePrice = _salePrice;
         saleState = SaleState.NOT_STARTED;
     }
