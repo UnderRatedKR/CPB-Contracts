@@ -13,6 +13,7 @@ contract CPB_S1 is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessC
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     string private _baseTokenURI;
+    uint256 public maxSupply = 1200;
 
     constructor(string memory baseTokenURI) ERC721("CelebPhotoBooks Season 1", "CPB") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
@@ -49,6 +50,7 @@ contract CPB_S1 is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessC
         _unpause();
     }
 
+/*
     function safeMint(address to, uint256 tokenId, string memory uri)
         public
         onlyRole(MINTER_ROLE)
@@ -56,12 +58,13 @@ contract CPB_S1 is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessC
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
     }
-
-    function safeMint(address to, uint256 tokenId)
+*/
+    function safeMint(address to)
         public
         onlyRole(MINTER_ROLE)
     {
-        _safeMint(to, tokenId);
+        require(totalSupply() < maxSupply, "exceeded max Supply.");
+        _safeMint(to, totalSupply() + 1);
     }
 
     function safeBatchMint(address [] calldata toList, uint256 [] calldata tokenIdList) public {
@@ -69,7 +72,7 @@ contract CPB_S1 is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessC
         uint256 i = 0;
 
         for (i; i < toList.length; i ++) {
-            safeMint(toList[i], tokenIdList[i]);
+            safeMint(toList[i]);
         }
     }
     
