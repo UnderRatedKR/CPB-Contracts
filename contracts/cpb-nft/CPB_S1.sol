@@ -67,8 +67,7 @@ contract CPB_S1 is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessC
         _safeMint(to, totalSupply() + 1);
     }
 
-    function safeBatchMint(address [] calldata toList, uint256 [] calldata tokenIdList) public {
-        require(toList.length == tokenIdList.length, "Array length is different");
+    function safeBatchMint(address [] calldata toList) public {
         uint256 i = 0;
 
         for (i; i < toList.length; i ++) {
