@@ -4,7 +4,7 @@ pragma solidity ^0.8.9;
 import "../openzeppelin-contracts/access/Ownable.sol";
 import "../openzeppelin-contracts/token/ERC721/ERC721.sol";
 
-contract NFT_WL_Sale is Ownable{
+contract CPB_S1_WL_Sale is Ownable{
 
     event SetSaleStartTime(uint256 saleStartTime);
     event SetSaleNft(ERC721 nft);
