@@ -2,7 +2,7 @@
 pragma solidity ^0.8.9;
 
 import "../openzeppelin-contracts/access/Ownable.sol";
-import "../openzeppelin-contracts/token/ERC721/ERC721.sol";
+import "../cpb-nft/CPB_S1.sol";
 
 contract CPB_S1_WL_Sale is Ownable{
 
@@ -14,7 +14,7 @@ contract CPB_S1_WL_Sale is Ownable{
     event SetTxLimit(uint256 txlimit);
 
     uint256 public saleStartTime;
-    ERC721 public nft; 
+    CPB_S1 public cpb; 
     uint256 public salePrice; 
     address payable public vault; 
     uint256 public saleLimit = 500; 
@@ -24,7 +24,7 @@ contract CPB_S1_WL_Sale is Ownable{
 
     
     constructor (
-        ERC721 _nft,        //판매할 NFT
+        CPB_S1 _cpb,        //판매할 NFT
         uint256 _salePrice, //판매가 WEI
         uint256 _saleLimit, //최대 판매 수량
         address payable _vault      //대금 전송 지갑
@@ -33,7 +33,7 @@ contract CPB_S1_WL_Sale is Ownable{
         require(_vault != address(0), "vault cannot be assigned with a zero address.");
         require(_salePrice != 0, "please set the sale price.");
 
-        setSaleNft(_nft);
+        setSaleNft(_cpb);
         setSalePrice(_salePrice);
         setSaleLimit(_saleLimit);
         setVault(_vault);
@@ -49,7 +49,7 @@ contract CPB_S1_WL_Sale is Ownable{
 
         uint256 i = 0;
         for (i; i < _quantity; i ++) {
-            nft.safeMint(msg.sender);
+            cpb.safeMint(msg.sender);
         }
     }
 
@@ -58,9 +58,9 @@ contract CPB_S1_WL_Sale is Ownable{
         emit SetSaleStartTime(_saleStartTime);
     }
 
-    function setSaleNft(ERC721 _nft) public onlyOwner {
-        nft = _nft;
-        emit SetSaleNft(_nft);
+    function setSaleNft(CPB_S1 _cpb) public onlyOwner {
+        cpb = _cpb;
+        emit SetSaleNft(_cpb);
     }
 
     function setSalePrice(uint256 _salePrice) public onlyOwner {   
@@ -83,9 +83,15 @@ contract CPB_S1_WL_Sale is Ownable{
         emit SetTxLimit(_txLimit);
     }
 
-    function setWhitelist(address[] calldata _wallet) public onlyOwner {
+    function addWhitelist(address[] calldata _wallet) public onlyOwner {
         for (uint256 i = 0; i < _wallet.length; i++) {
             whitelist[_wallet[i]] = true;
+        }
+    }
+
+    function removeWhitelist(address[] calldata _wallet) public onlyOwner {
+        for (uint256 i = 0; i < _wallet.length; i++) {
+            whitelist[_wallet[i]] = false;
         }
     }
 
