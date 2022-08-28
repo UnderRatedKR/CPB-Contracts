@@ -5,10 +5,13 @@ require('dotenv').config()
 module.exports = {
   solidity: '0.8.9',
   networks: {
+    klaytn: {
+      url: "https://klaytn01.fandom.finance",
+      accounts: [process.env.PRIVATE_KEY || ""],
+    },
     baobab: {
       url: 'https://public-node-api.klaytnapi.com/v1/baobab/',
-      accounts: [process.env.PRIVATE_KEY],
-      gasPrice:250000000000,
+      accounts: [process.env.PRIVATE_KEY || ''],
     },
   },
   abiExporter: {
