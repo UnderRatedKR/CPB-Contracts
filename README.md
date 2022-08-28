@@ -13,7 +13,7 @@ npx hardhat test
 ```
 Name : CelebPhotobooks Season 1
 Symbol : CPB
-Baobab : 0xC40eb009D4a2A36cDee866Ca35cB514532A9E59a
-ABI
+Baobab : 
 Cypress : 
+ABI : ./abi/CPB_S1.json
 ```
