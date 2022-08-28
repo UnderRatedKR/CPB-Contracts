@@ -39,13 +39,20 @@ contract NFT_WL_Sale is Ownable{
         setVault(_vault);
     }
 
-/*
-    function mintKlay(uint256 unit) public payable {
-        nft.safeMint(msg.sender, nft.)
+
+    function mintKlay(uint256 _quantity) public payable {
+        require(_quantity >= 1, "Invalid quantity.");
+        require(_quantity <= txLimit, "Exceed tx limit.");
+        require(saleCount + _quantity <= saleLimit, "Exceed sale limit.");
+        require(isWhitelist(msg.sender), "Not whitelist");
+        require(msg.value == salePrice * _quantity, "Wrong value");
+
+        uint256 i = 0;
+        for (i; i < _quantity; i ++) {
+            nft.safeMint(msg.sender);
+        }
     }
 
-    
-*/
     function setSaleStartTime(uint256 _saleStartTime) public onlyOwner {
         saleStartTime = _saleStartTime;
         emit SetSaleStartTime(_saleStartTime);
