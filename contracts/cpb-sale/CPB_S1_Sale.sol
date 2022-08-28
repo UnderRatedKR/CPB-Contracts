@@ -2,7 +2,7 @@
 pragma solidity ^0.8.9;
 
 import "../openzeppelin-contracts/access/Ownable.sol";
-import "../cpb-nft/CPB_S1.sol";
+import "../openzeppelin-contracts/token/ERC721/ERC721.sol";
 
 contract CPB_S1_Sale is Ownable{
 
@@ -16,21 +16,23 @@ contract CPB_S1_Sale is Ownable{
         COMPLETED
     }
 
-    CPB_S1 public cpb;
+    ERC721 public nft;
     SaleState public saleState;
-    uint256 public salePrice; //wei or peb
+    uint256 public salePrice; //wei or pebt
     address payable public vault;
     uint256 public saleLimit;
     
-    constructor (uint256 _salePrice, CPB_S1 _cpb, uint256 _saleLimit) {
+    constructor (uint256 _salePrice, ERC721 _nft, uint256 _saleLimit, address _vault) {
+        require(_vault != address(0), "vault cannot be assigned with a zero address.");
+        
         salePrice = _salePrice;
         saleState = SaleState.NOT_STARTED;
         saleLimit = _saleLimit;
-        cpb = _cpb;
+        nft = _nft;
     }
 
-    function setCpb(CPB_S1 _cpb) public onlyOwner {
-        cpb = _cpb;
+    function setSaleNft(ERC721 _nft) public onlyOwner {
+        nft = _nft;
     }
 
     function setVault(address payable _vault) public onlyOwner {
