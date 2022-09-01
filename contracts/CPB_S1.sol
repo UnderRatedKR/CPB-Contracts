@@ -22,6 +22,14 @@ contract CPB_S1 is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessC
         _baseTokenURI = baseTokenURI;
     }
 
+    function addMinter(address _newMinter) public onlyRole(MINTER_ROLE){
+        _grantRole(MINTER_ROLE, _newMinter);
+    }
+
+    function removeMinter(address _minter) public onlyRole(MINTER_ROLE){
+        _revokeRole(MINTER_ROLE, _minter);
+    }
+
     function _baseURI() internal view virtual override returns (string memory) {
         return _baseTokenURI;
     }
