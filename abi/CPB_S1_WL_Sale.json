@@ -2,8 +2,8 @@
   {
     "inputs": [
       {
-        "internalType": "contract ERC721",
-        "name": "_nft",
+        "internalType": "contract CPB_S1",
+        "name": "_cpb",
         "type": "address"
       },
       {
@@ -20,6 +20,11 @@
         "internalType": "address payable",
         "name": "_vault",
         "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "_useWhitelist",
+        "type": "bool"
       }
     ],
     "stateMutability": "nonpayable",
@@ -114,6 +119,19 @@
     "inputs": [
       {
         "indexed": false,
+        "internalType": "bool",
+        "name": "useWhitelist",
+        "type": "bool"
+      }
+    ],
+    "name": "SetUseWhitelist",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "address",
         "name": "vault",
         "type": "address"
@@ -121,6 +139,32 @@
     ],
     "name": "SetVault",
     "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_wallet",
+        "type": "address[]"
+      }
+    ],
+    "name": "addWhitelist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cpb",
+    "outputs": [
+      {
+        "internalType": "contract CPB_S1",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [
@@ -142,16 +186,16 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "nft",
-    "outputs": [
+    "inputs": [
       {
-        "internalType": "contract ERC721",
-        "name": "",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "_quantity",
+        "type": "uint256"
       }
     ],
-    "stateMutability": "view",
+    "name": "mint",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
   },
   {
@@ -165,6 +209,19 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_wallet",
+        "type": "address[]"
+      }
+    ],
+    "name": "removeWhitelist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -242,8 +299,8 @@
   {
     "inputs": [
       {
-        "internalType": "contract ERC721",
-        "name": "_nft",
+        "internalType": "contract CPB_S1",
+        "name": "_cpb",
         "type": "address"
       }
     ],
@@ -294,12 +351,12 @@
   {
     "inputs": [
       {
-        "internalType": "address payable",
-        "name": "_vault",
-        "type": "address"
+        "internalType": "bool",
+        "name": "_useWhitelist",
+        "type": "bool"
       }
     ],
-    "name": "setVault",
+    "name": "setUseWhitelist",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -307,12 +364,12 @@
   {
     "inputs": [
       {
-        "internalType": "address[]",
-        "name": "_wallet",
-        "type": "address[]"
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
       }
     ],
-    "name": "setWhitelist",
+    "name": "setVault",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -338,6 +395,19 @@
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "useWhitelist",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",

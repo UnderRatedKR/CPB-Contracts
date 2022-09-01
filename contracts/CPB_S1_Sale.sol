@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-import "../openzeppelin-contracts/access/Ownable.sol";
-import "../cpb-nft/CPB_S1.sol";
+import "./openzeppelin-contracts/access/Ownable.sol";
+import "./cpb-nft/CPB_S1.sol";
 
 contract CPB_S1_WL_Sale is Ownable{
 
@@ -30,7 +30,7 @@ contract CPB_S1_WL_Sale is Ownable{
         uint256 _salePrice,      //판매가 WEI
         uint256 _saleLimit,      //최대 판매 수량
         address payable _vault,  //대금 전송 지갑
-        bool _useWhitelist        //화리 기능 사용여부
+        bool _useWhitelist       //화리 기능 사용여부
         ) 
     {
         require(_vault != address(0), "vault cannot be assigned with a zero address.");
@@ -44,7 +44,7 @@ contract CPB_S1_WL_Sale is Ownable{
     }
 
 
-    function mintKlay(uint256 _quantity) public payable {
+    function mint(uint256 _quantity) public payable {
         require(_quantity >= 1, "Invalid quantity.");
         require(_quantity <= txLimit, "Exceed tx limit.");
         require(saleCount + _quantity <= saleLimit, "Exceed sale limit.");
