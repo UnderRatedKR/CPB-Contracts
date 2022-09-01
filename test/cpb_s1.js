@@ -18,14 +18,20 @@ describe("cpb nft s1 test", function () {
     }
 
     await cpb.safeBatchMint(reserve);
-    await expect (cpb.totalSupply()).to.be.equal(200);
+    expect(await cpb.totalSupply()).to.be.equal(200);
 
-    
+    /*
+    //1200개까지만 발행되는지 테스트
+    await cpb.safeBatchMint(reserve);
+    await cpb.safeBatchMint(reserve);
+    await cpb.safeBatchMint(reserve);
+    await cpb.safeBatchMint(reserve);
+    await cpb.safeBatchMint(reserve);
+    expect(await cpb.totalSupply()).to.be.equal(1200);
+    expect(await cpb.tokenURI(1200)).to.be.equal("https://test.com/1200");
+    await expect(cpb.safeMint(deployer.address)).to.be.revertedWith("exceeded max Supply.");
+    */
 
-
-    //nft배포 체크리스트
-    //1200번 이상 민팅 안되는지 확인 필요
-    //1-1200번 번호 정확하게 민팅 들어가는지, 주소 잘 들어가는지 확인 필요
 
   });
 });

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.9;
 
 import "./openzeppelin-contracts/access/Ownable.sol";
-import "./cpb-nft/CPB_S1.sol";
+import "./CPB_S1.sol";
 
 contract CPB_S1_WL_Sale is Ownable{
 
