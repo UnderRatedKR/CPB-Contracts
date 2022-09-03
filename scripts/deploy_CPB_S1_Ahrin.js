@@ -14,14 +14,14 @@ async function main() {
   await cpb.deployed();
   console.log("CPB_S1_Ahrin deployed to:", cpb.address);
 
-  await klaytnTxWait();
-
   //팀 보유 리저브 물량 초기 민팅
   let reserve = []
   for (let i = 0; i < 200; i ++) {
     reserve.push(vaultAddress);
   }
   await cpb.safeBatchMint(reserve);
+
+  await klaytnTxWait();
   console.log("premint succ, totalSupply : " + await cpb.totalSupply());
 }
 
