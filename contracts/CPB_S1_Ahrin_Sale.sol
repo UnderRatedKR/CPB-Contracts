@@ -2,9 +2,9 @@
 pragma solidity ^0.8.9;
 
 import "./openzeppelin-contracts/access/Ownable.sol";
-import "./CPB_S1.sol";
+import "./CPB_S1_Ahrin.sol";
 
-contract CPB_S1_Sale is Ownable{
+contract CPB_S1_Ahrin_Sale is Ownable{
 
     event SetSaleStartTime(uint256 saleStartTime);
     event SetSaleNft(ERC721 nft);

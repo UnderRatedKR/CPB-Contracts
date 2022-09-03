@@ -9,7 +9,7 @@ import "./openzeppelin-contracts/access/Ownable.sol";
 import "./openzeppelin-contracts/access/AccessControl.sol";
 import "./openzeppelin-contracts/token/ERC721/extensions/ERC721Burnable.sol";
 
-contract CPB_S1 is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessControl, ERC721Burnable, Ownable {
+contract CPB-S1-Ahrin is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessControl, ERC721Burnable, Ownable {
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     string private _baseTokenURI;

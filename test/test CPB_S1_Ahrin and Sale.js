@@ -3,17 +3,17 @@ const { parseUnits, FormatTypes } = require("ethers/lib/utils");
 const { ethers, waffle } = require("hardhat");
 
 
-describe("cpb nft s1 test", function () {
+describe("cpb nft s1 ahrin test", function () {
 
-  const CPB_S1_BaseURI = 'https://cpb-nft.s3.ap-northeast-2.amazonaws.com/metadata/'
+  const CPB_S1_Ahrin_BaseURI = 'https://cpb-nft.s3.ap-northeast-2.amazonaws.com/metadata/'
   const provider = waffle.provider;
   const [deployer, vault, wl, wl2, not_wl] = provider.getWallets();
   
-  it("deploy CPB1 and Sale", async function () {
+  it("deploy CPB s1 ahrin and Sale", async function () {
 
      //NFT 배포
-     const CPB1 = await ethers.getContractFactory("CPB_S1");
-     const cpb = await CPB1.deploy(CPB_S1_BaseURI);
+     const CPB1 = await ethers.getContractFactory("CPB-S1-Ahrin");
+     const cpb = await CPB1.deploy(CPB_S1_Ahrin_BaseURI);
 
      
      await cpb.deployed();
@@ -44,7 +44,7 @@ describe("cpb nft s1 test", function () {
     console.log("salePrice : " + salePrice)
 
     //NFT 세일 배포
-    const CPB1_Sale = await ethers.getContractFactory("CPB_S1_Sale");
+    const CPB1_Sale = await ethers.getContractFactory("CPB-S1-Ahrin-Sale");
     const sale = await CPB1_Sale.deploy(
       cpb.address, //판매할 NFT
       salePrice,//판매가
