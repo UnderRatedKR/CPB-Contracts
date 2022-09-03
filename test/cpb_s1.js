@@ -5,14 +5,17 @@ const { ethers, waffle } = require("hardhat");
 
 describe("cpb nft s1 test", function () {
 
+  const CPB_S1_BaseURI = 'https://cpb-nft.s3.ap-northeast-2.amazonaws.com/matadata/'
   const provider = waffle.provider;
   const [deployer, vault, wl, wl2, not_wl] = provider.getWallets();
-
-  it("deploy CPB1 Sale", async function () {
+  
+  it("deploy CPB1 and Sale", async function () {
 
      //NFT 배포
      const CPB1 = await ethers.getContractFactory("CPB_S1");
-     const cpb = await CPB1.deploy("https://test.com/");
+     const cpb = await CPB1.deploy(CPB_S1_BaseURI);
+
+     
      await cpb.deployed();
  
      //팀 보유 리저브 물량 초기 민팅
@@ -83,6 +86,9 @@ describe("cpb nft s1 test", function () {
     console.log("saleCount / saleLimit : " + await sale.saleCount() + " / " + await sale.saleLimit());
     //console.log("wl 2 balance : " + await provider.getBalance(wl2.address));
     console.log("cpb totalSupply : " + await cpb.totalSupply());
+
+    expect(await cpb.tokenURI(1)).to.be.equal(CPB_S1_BaseURI + "1");
+    expect(await cpb.tokenURI(700)).to.be.equal(CPB_S1_BaseURI + "700");
 
   });
 });
