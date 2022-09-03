@@ -7,14 +7,16 @@ Smart Contracts for CPB
 npm install
 npx hardhat compile
 npx hardhat test
+
+npx hardhat run --network baobab scripts/deploy CPB_S1_Ahrin.js
 ```
 
-## CPB Season 1
+## CPB Season 1 Ahrin
 ```
-Name : CelebPhotobooks Season 1
+Name : Ahrin: CelebPhotobooks Season 1
 Symbol : CPB
 Standard : ERC721
 Baobab : 
 Cypress : 
-ABI : ./abi/CPB_S1.json
+ABI : ./abi/CPB_S1_Ahrin.json
 ```

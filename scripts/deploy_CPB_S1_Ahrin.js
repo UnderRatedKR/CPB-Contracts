@@ -4,8 +4,8 @@ async function main() {
   const baseURI = 'https://cpb-nft.s3.ap-northeast-2.amazonaws.com/metadata/'
 
 
-  const Cpb = await hardhat.ethers.getContractFactory("CPB_S1_Ahrin");
-  const cpb = await Cpb.deploy(baseURI);
+  const CPB = await hardhat.ethers.getContractFactory("CPB_S1_Ahrin");
+  const cpb = await CPB.deploy(baseURI);
 
   await cpb.deployed();
 
