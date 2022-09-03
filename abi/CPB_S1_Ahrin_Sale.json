@@ -25,6 +25,11 @@
         "internalType": "bool",
         "name": "_useWhitelist",
         "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_saleStartTime",
+        "type": "uint256"
       }
     ],
     "stateMutability": "nonpayable",

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+pragma solidity 0.8.9;
 
 import "./openzeppelin-contracts/access/Ownable.sol";
 import "./CPB_S1_Ahrin.sol";
@@ -30,7 +30,8 @@ contract CPB_S1_Ahrin_Sale is Ownable{
         uint256 _salePrice,      //판매가 WEI
         uint256 _saleLimit,      //최대 판매 수량
         address payable _vault,  //대금 전송 지갑
-        bool _useWhitelist       //화리 기능 사용여부
+        bool _useWhitelist,       //화리 기능 사용여부
+        uint256 _saleStartTime    //세일시작시간
         ) 
     {
         require(_vault != address(0), "vault cannot be assigned with a zero address.");
@@ -41,10 +42,12 @@ contract CPB_S1_Ahrin_Sale is Ownable{
         setSaleLimit(_saleLimit);
         setVault(_vault);
         setUseWhitelist(_useWhitelist);
+        setSaleStartTime(_saleStartTime);
     }
 
 
     function mint(uint256 _quantity) public payable {
+        require(block.timestamp > saleStartTime, "Before sale start.");
         require(saleCount + _quantity <= saleLimit, "Exceed sale limit.");
         require(_quantity >= 1, "Invalid quantity.");
         require(_quantity <= txLimit, "Exceed tx limit.");
