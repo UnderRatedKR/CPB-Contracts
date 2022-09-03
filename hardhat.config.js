@@ -6,11 +6,11 @@ module.exports = {
   solidity: '0.8.9',
   networks: {
     klaytn: {
-      url: "https://klaytn01.fandom.finance",
+      url: "https://klaytn-mainnet-rpc.allthatnode.com:8551",
       accounts: [process.env.PRIVATE_KEY || ""],
     },
     baobab: {
-      url: 'https://public-node-api.klaytnapi.com/v1/baobab/',
+      url: "https://klaytn-baobab-rpc.allthatnode.com:8551",
       accounts: [process.env.TEST_PRIVATE_KEY || ''],
     },
   },
