@@ -5,7 +5,7 @@ const { ethers, waffle } = require("hardhat");
 
 describe("cpb nft s1 test", function () {
 
-  const CPB_S1_BaseURI = 'https://cpb-nft.s3.ap-northeast-2.amazonaws.com/matadata/'
+  const CPB_S1_BaseURI = 'https://cpb-nft.s3.ap-northeast-2.amazonaws.com/metadata/'
   const provider = waffle.provider;
   const [deployer, vault, wl, wl2, not_wl] = provider.getWallets();
   

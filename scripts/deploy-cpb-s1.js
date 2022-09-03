@@ -1,7 +1,8 @@
 const hardhat = require("hardhat");
 
 async function main() {
-  const baseURI = 'https://cpb-nft.s3.ap-northeast-2.amazonaws.com/matadata/'
+  const baseURI = 'https://cpb-nft.s3.ap-northeast-2.amazonaws.com/metadata/'
+
 
   const Cpb = await hardhat.ethers.getContractFactory("CelebPhotoBooksSeason1");
   const cpb = await Cpb.deploy(baseURI);
