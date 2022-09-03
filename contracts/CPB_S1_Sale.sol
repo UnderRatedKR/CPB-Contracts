@@ -45,10 +45,9 @@ contract CPB_S1_Sale is Ownable{
 
 
     function mint(uint256 _quantity) public payable {
+        require(saleCount + _quantity <= saleLimit, "Exceed sale limit.");
         require(_quantity >= 1, "Invalid quantity.");
         require(_quantity <= txLimit, "Exceed tx limit.");
-        require(saleCount + _quantity <= saleLimit, "Exceed sale limit.");
-        
         require(msg.value == salePrice * _quantity, "Wrong value");
 
         if(useWhitelist){
@@ -59,6 +58,8 @@ contract CPB_S1_Sale is Ownable{
         for (i; i < _quantity; i ++) {
             cpb.safeMint(msg.sender);
         }
+
+        saleCount = saleCount + _quantity;
     }
 
     function setSaleStartTime(uint256 _saleStartTime) public onlyOwner {

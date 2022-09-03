@@ -11,7 +11,7 @@ module.exports = {
     },
     baobab: {
       url: 'https://public-node-api.klaytnapi.com/v1/baobab/',
-      accounts: [process.env.PRIVATE_KEY || ''],
+      accounts: [process.env.TEST_PRIVATE_KEY || ''],
     },
   },
   abiExporter: {
