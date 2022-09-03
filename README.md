@@ -9,6 +9,7 @@ npx hardhat compile
 npx hardhat test
 
 npx hardhat run .\scripts\deploy_CPB_S1_Ahrin.js --network baobab
+npx hardhat run .\scripts\deploy_CPB_S1_Ahrin_Sale.js --network baobab
 
 ```
 
@@ -17,7 +18,7 @@ npx hardhat run .\scripts\deploy_CPB_S1_Ahrin.js --network baobab
 Name : Ahrin: CelebPhotobooks Season 1
 Symbol : CPB
 Standard : ERC721
-Baobab : `0x75657BD85d7A8a0f5E296c4f449555B384E84d60`
+Baobab : `0xF2e4dE8dC9ABD2E7bB83c60A2119150EF4cc32B6`
 Cypress : 
 ABI : ./abi/CPB_S1_Ahrin.json
 ```
