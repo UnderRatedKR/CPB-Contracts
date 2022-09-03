@@ -2,7 +2,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract CPB_S1",
+        "internalType": "contract CPB_S1_Ahrin",
         "name": "_cpb",
         "type": "address"
       },
@@ -158,7 +158,7 @@
     "name": "cpb",
     "outputs": [
       {
-        "internalType": "contract CPB_S1",
+        "internalType": "contract CPB_S1_Ahrin",
         "name": "",
         "type": "address"
       }
@@ -299,7 +299,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract CPB_S1",
+        "internalType": "contract CPB_S1_Ahrin",
         "name": "_cpb",
         "type": "address"
       }

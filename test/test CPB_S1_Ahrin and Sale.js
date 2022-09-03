@@ -9,10 +9,10 @@ describe("cpb nft s1 ahrin test", function () {
   const provider = waffle.provider;
   const [deployer, vault, wl, wl2, not_wl] = provider.getWallets();
   
-  it("deploy CPB s1 ahrin and Sale", async function () {
+  it("deploy CPB S1 ahrin and Sale", async function () {
 
      //NFT 배포
-     const CPB1 = await ethers.getContractFactory("CPB-S1-Ahrin");
+     const CPB1 = await ethers.getContractFactory("CPB_S1_Ahrin");
      const cpb = await CPB1.deploy(CPB_S1_Ahrin_BaseURI);
 
      
@@ -36,7 +36,7 @@ describe("cpb nft s1 ahrin test", function () {
      await cpb.safeBatchMint(reserve);
      await cpb.safeBatchMint(reserve);
      expect(await cpb.totalSupply()).to.be.equal(1200);
-     expect(await cpb.tokenURI(1200)).to.be.equal("https://test.com/1200");
+     expect(await cpb.tokenURI(1200)).to.be.equal(CPB_S1_Ahrin_BaseURI + "1200");
      await expect(cpb.safeMint(deployer.address)).to.be.revertedWith("exceeded max Supply.");
      */
      
@@ -44,7 +44,7 @@ describe("cpb nft s1 ahrin test", function () {
     console.log("salePrice : " + salePrice)
 
     //NFT 세일 배포
-    const CPB1_Sale = await ethers.getContractFactory("CPB-S1-Ahrin-Sale");
+    const CPB1_Sale = await ethers.getContractFactory("CPB_S1_Ahrin_Sale");
     const sale = await CPB1_Sale.deploy(
       cpb.address, //판매할 NFT
       salePrice,//판매가
@@ -87,8 +87,8 @@ describe("cpb nft s1 ahrin test", function () {
     //console.log("wl 2 balance : " + await provider.getBalance(wl2.address));
     console.log("cpb totalSupply : " + await cpb.totalSupply());
 
-    expect(await cpb.tokenURI(1)).to.be.equal(CPB_S1_BaseURI + "1");
-    expect(await cpb.tokenURI(700)).to.be.equal(CPB_S1_BaseURI + "700");
+    expect(await cpb.tokenURI(1)).to.be.equal(CPB_S1_Ahrin_BaseURI + "1");
+    expect(await cpb.tokenURI(700)).to.be.equal(CPB_S1_Ahrin_BaseURI + "700");
 
   });
 });

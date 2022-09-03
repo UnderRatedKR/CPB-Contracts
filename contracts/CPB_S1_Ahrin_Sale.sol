@@ -15,7 +15,7 @@ contract CPB_S1_Ahrin_Sale is Ownable{
     event SetUseWhitelist(bool useWhitelist);
 
     uint256 public saleStartTime;
-    CPB_S1 public cpb; 
+    CPB_S1_Ahrin public cpb; 
     uint256 public salePrice; 
     address payable public vault; 
     uint256 public saleLimit = 500; 
@@ -26,7 +26,7 @@ contract CPB_S1_Ahrin_Sale is Ownable{
 
     
     constructor (
-        CPB_S1 _cpb,             //판매할 NFT
+        CPB_S1_Ahrin _cpb,             //판매할 NFT
         uint256 _salePrice,      //판매가 WEI
         uint256 _saleLimit,      //최대 판매 수량
         address payable _vault,  //대금 전송 지갑
@@ -67,7 +67,7 @@ contract CPB_S1_Ahrin_Sale is Ownable{
         emit SetSaleStartTime(_saleStartTime);
     }
 
-    function setSaleNft(CPB_S1 _cpb) public onlyOwner {
+    function setSaleNft(CPB_S1_Ahrin _cpb) public onlyOwner {
         cpb = _cpb;
         emit SetSaleNft(_cpb);
     }
