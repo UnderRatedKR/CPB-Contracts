@@ -18,7 +18,7 @@ npx hardhat run .\scripts\deploy_CPB_S1_Ahrin_Sale.js --network baobab
 Name : Ahrin: CelebPhotobooks Season 1
 Symbol : CPB
 Standard : ERC721
-Baobab : `0xF2e4dE8dC9ABD2E7bB83c60A2119150EF4cc32B6`
+Baobab : `0xD92C7dd14E646203Bfde80f1D627C2c093c60748`
 Cypress : 
 ABI : ./abi/CPB_S1_Ahrin.json
 ```

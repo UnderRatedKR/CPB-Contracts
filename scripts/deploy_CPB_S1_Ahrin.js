@@ -6,7 +6,7 @@ function klaytnTxWait() {
 
 async function main() {
   const baseURI = 'https://cpb-nft.s3.ap-northeast-2.amazonaws.com/metadata/'
-  const vaultAddress = '0xe368931C7302372787cEA9Dc5C1927E8053342f2'
+  const teamAddress = '0x49049ff9e067300268EB4cc6D1683BAFD88AA37a'//테스트용 Kaikas 5번
 
   const CPB = await hardhat.ethers.getContractFactory("CPB_S1_Ahrin");
   const cpb = await CPB.deploy(baseURI);
@@ -17,7 +17,7 @@ async function main() {
   //팀 보유 리저브 물량 초기 민팅
   let reserve = []
   for (let i = 0; i < 200; i ++) {
-    reserve.push(vaultAddress);
+    reserve.push(teamAddress);
   }
   await cpb.safeBatchMint(reserve);
 

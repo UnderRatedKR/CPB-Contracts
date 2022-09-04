@@ -60,7 +60,7 @@ contract CPB_S1_Ahrin_Sale is Ownable{
         require(msg.value == salePrice * _quantity, "Wrong KLAY value");
 
         if(useWhitelist){
-            require(isWhitelist(msg.sender), "Not whitelist");
+            require(isWhitelist(msg.sender), "Not whitelisted");
         }
 
         uint256 i = 0;
