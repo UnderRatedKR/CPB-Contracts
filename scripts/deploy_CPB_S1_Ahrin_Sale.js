@@ -2,7 +2,7 @@ const { parseUnits } = require("ethers/lib/utils");
 const hardhat = require("hardhat");
 
 async function main() {
-  const CPB_S1_Ahrin_Baobab = '0x75657BD85d7A8a0f5E296c4f449555B384E84d60'
+  const CPB_S1_Ahrin_Baobab = '0xf2e4de8dc9abd2e7bb83c60a2119150ef4cc32b6'
   const Vault = '0xe368931C7302372787cEA9Dc5C1927E8053342f2'
 
   const salePrice = parseUnits("2.0", "ether")//바오밥 판매가

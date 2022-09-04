@@ -52,12 +52,12 @@ contract CPB_S1_Ahrin_Sale is Ownable{
 
 
     function mint(uint256 _quantity) public payable {
-        require(block.timestamp > saleStartTime, "Before sale start.");
+        require(block.timestamp > saleStartTime, "Before the sale starts.");
         require(block.timestamp < saleEndTime, "Sale has ended.");
-        require(saleCount + _quantity <= saleLimit, "Exceed sale limit.");
+        require(saleCount + _quantity <= saleLimit, "Sold out.");
         require(_quantity >= 1, "Invalid quantity.");
         require(_quantity <= txLimit, "Exceed tx limit.");
-        require(msg.value == salePrice * _quantity, "Wrong value");
+        require(msg.value == salePrice * _quantity, "Wrong KLAY value");
 
         if(useWhitelist){
             require(isWhitelist(msg.sender), "Not whitelist");
