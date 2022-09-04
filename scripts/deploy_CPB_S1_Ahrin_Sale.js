@@ -14,7 +14,8 @@ async function main() {
     500, //판매수량
     Vault, //집금지갑
     false, //바오밥 1차 테스트에서는 화이트리스트 사용을 하지 않는다.
-    nowtime - 1000 //세일시작시간
+    nowtime - 1000, //세일시작시간
+    1662303600 //세일종료시간 9/5 00시
     );
   await sale.deployed();
   console.log("CPB1_Sale deployed to:", sale.address);

@@ -52,7 +52,8 @@ describe("cpb nft s1 ahrin test", function () {
       500, //판매수량
       vault.address, //집금지갑
       true,//화리기능사용여부
-      nowtime - 1000 //세일시작시간(+1000으로 설정 시 실패 테스트)
+      nowtime - 1000, //세일시작시간(+1000으로 설정 시 실패 테스트)
+      nowtime + 100000 //세일종료시간(-1000으로 설정 시 실패 테스트)
       );
     await sale.deployed();
 
@@ -61,7 +62,7 @@ describe("cpb nft s1 ahrin test", function () {
 
     //SALE 계약에 CPB 민터롤 지정
     await cpb.addMinter(sale.address);
-
+    
     //화리추가
     await sale.addWhitelist([wl.address, wl2.address]);
 
@@ -80,6 +81,7 @@ describe("cpb nft s1 ahrin test", function () {
       //console.log("wl 2 balance : " + await provider.getBalance(wl2.address));
       //console.log("cpb totalSupply : " + await cpb.totalSupply());
     }
+    //await sale.connect(deployer).setSaleCount(490 + parseInt(await sale.saleCount()));
 
     //애매하게 남은 수량 마저 구매
     await expect(sale.connect(wl).mint(6, {value : salePrice.mul(6)})).to.be.revertedWith("Exceed sale limit.");

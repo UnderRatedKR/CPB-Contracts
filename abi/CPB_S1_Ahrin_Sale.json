@@ -30,6 +30,11 @@
         "internalType": "uint256",
         "name": "_saleStartTime",
         "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_saleEndTime",
+        "type": "uint256"
       }
     ],
     "stateMutability": "nonpayable",
@@ -60,7 +65,33 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "limit",
+        "name": "saleCount",
+        "type": "uint256"
+      }
+    ],
+    "name": "SetSaleCount",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "saleEndTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "SetSaleEndTime",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "saleLimit",
         "type": "uint256"
       }
     ],
@@ -86,7 +117,7 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "price",
+        "name": "salePrice",
         "type": "uint256"
       }
     ],
@@ -251,6 +282,19 @@
   },
   {
     "inputs": [],
+    "name": "saleEndTime",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "saleLimit",
     "outputs": [
       {
@@ -286,6 +330,32 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_saleCount",
+        "type": "uint256"
+      }
+    ],
+    "name": "setSaleCount",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_saleEndTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "setSaleEndTime",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
