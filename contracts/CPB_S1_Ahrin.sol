@@ -15,7 +15,7 @@ contract CPB_S1_Ahrin is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, A
     string private _baseTokenURI;
     uint256 public maxSupply = 1200;
 
-    constructor(string memory baseTokenURI) ERC721("CelebPhotoBooks Season 1", "CPB") {
+    constructor(string memory baseTokenURI) ERC721("(Ahrin) CelebPhotobooks Season 1", "CPB") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(PAUSER_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);

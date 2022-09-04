@@ -19,7 +19,7 @@ Name : Ahrin: CelebPhotobooks Season 1
 Symbol : CPB
 Standard : ERC721
 Baobab : `0xD92C7dd14E646203Bfde80f1D627C2c093c60748`
-Cypress : 
+Cypress : `0xc2d60ac0CF0703A475cCd180F52E2c7E61dB5EC5`
 ABI : ./abi/CPB_S1_Ahrin.json
 ```
 
