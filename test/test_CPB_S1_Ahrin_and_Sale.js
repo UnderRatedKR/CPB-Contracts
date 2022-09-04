@@ -68,11 +68,13 @@ describe("cpb nft s1 ahrin test", function () {
 
     //민트테스트
     await sale.connect(wl).mint(5, {value : salePrice.mul(5)});
-
+    
     //민트 예외케이스
     await expect(sale.connect(wl2).mint(0, {value : "1"})).to.be.revertedWith("Invalid quantity.");
     await expect(sale.connect(wl2).mint(11, {value : salePrice.mul(11)})).to.be.revertedWith("Exceed tx limit.");
     await expect(sale.connect(not_wl).mint(2, {value : salePrice.mul(2)})).to.be.revertedWith("Not whitelist");
+
+    await expect(sale.connect(deployer).setSaleCount(501)).to.be.revertedWith("saleCount must be less than or equal to saleLimit.");
 
     //490개 민팅하기
     for(let i = 0; i < 49; i++){
